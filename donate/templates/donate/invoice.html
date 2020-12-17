@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <style>
+
+    .text-center{
+        text-align: center;
+    }
+
+    .text-end{
+        text-align: right;
+    }
+
+    @page {
+        size: a4 portrait;
+        @frame header_frame {           /* Static Frame */
+            -pdf-frame-content: header_content;
+            left: 50pt; width: 512pt; top: 50pt; height: 40pt;
+        }
+        @frame content_frame {          /* Content Frame */
+            left: 50pt; width: 512pt; top: 90pt; height: 632pt;
+        }
+        @frame footer_frame {           /* Another static Frame */
+            -pdf-frame-content: footer_content;
+            left: 50pt; width: 512pt; top: 772pt; height: 20pt;
+        }
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+    
+        <div class="row text-center ">
+            <h1>Transaction Details</h1>
+        </div>
+
+        <hr style='color:red;'>
+        <hr style='color:blue;'>
+
+        <div class="row">
+            <p>Amount: $ <span style='font-weight: bold;' >{{ amount }}</span></p>
+            <p>Paid By: <span style='font-weight: bold;' >{{ name }}</span></p>
+        </div>
+
+        <hr style='color:blue;'>
+
+        <div class="row text-end ">
+            <p style='font-weight: bold;'>Thanks & Regards,</p>
+            <p style='font-weight: bold;'>Ashutosh</p>
+        </div>
+    
+    </div>
+</body>
+</html>
